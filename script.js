@@ -1,5 +1,27 @@
 /************************ 1  *************************/
 
+const generateString = (person) => {
+  let res = '';
+  switch (person.name) {
+    case "Marcel":
+      res += `${person.name} is from France`;
+      break;
+    case "Silvester":
+      res += `${person.name} is from America"??"`;
+      break;
+  }
+
+  res += ' and ';
+
+  if (person.status === "dead") {
+    res += 'dead';
+  } else {
+    res += 'alive';
+  }
+
+  return res;
+};
+
 const person = {
   name: "Marcel",
   surname: "Proust",
@@ -17,67 +39,59 @@ const person = {
   },
 };
 
-switch (person) {
-  // case person:{
-  //     console.log(person.name);
-  // }
-  // break;
-  case person:
-    {
-      console.log(person.books.name);
-    }
-    break;
+const person1 = {
+  name: 'Silvester',
+  surname: 'Stalone',
+  status: 'alive',
 }
 
-if (person) {
-  console.log(person.name);
-} else {
-  console.log("404");
-}
+console.log('person: ', generateString(person));
+console.log('person: ', generateString(person1));
 
 /************************ 2  *************************/
 
-/* 
+const myArr = (arr, num) => {
+  if (arr.includes(num)) {
+    return arr.indexOf(num);
+  } else {
+    return false;
+  }
+};
 
-const arr = [1, 2, 3];
-
-if(arr.includes(3)) {
-    console.log(arr.indexOf(3));
-} else {
-    console.log(false);
-}
-
-
-*/
+console.log(myArr([1, 2, 3], 3));
+console.log(myArr([1, 2, 3], 5));
 
 /************************ 3  *************************/
 
-const num = 5;
+const myArr2 = (arr, num) => {
+  if (!arr.includes(num)) arr.push(num);
+  return arr;
+};
 
-const arr = [1, 2, 3, 4];
+const array = [1, 2, 3, 4, 5];
 
-if (arr.includes(num)) {
-  console.log("Number is already exist in array");
-} else {
-  arr.push(num);
-  console.log(arr);
-}
+console.log("add number to array", myArr2(array, 3));
+console.log("add number to array", myArr2(array, 10));
+console.log("add number to array", myArr2(array, 6));
+console.log("add number to array", myArr2(array, 3));
 
 /************************ 4  *************************/
 
-const humanBeing = {
-  name: "ad1",
-  surname: "filankesov",
-  age: "35",
-  email: "filankes@gmail.com",
-};
-
-function changeValue(value) {
-  humanBeing.name = value;
-  console.log(humanBeing.name);
+function resultData(name, surname, age, email) {
+  return {
+    name: name,
+    surname: surname,
+    age: age,
+    email: email,
+  };
 }
 
-changeValue("filankes");
+// const name = prompt("Enter your name:");
+// const surname = prompt("Enter your surname:");
+// const age = prompt("Enter your age:");
+// const email = prompt("Enter your email:");
+
+// console.log(resultData(name, surname, age, email));
 
 /************************ 5  *************************/
 
@@ -92,7 +106,8 @@ function addKey(key, value) {
   obj[key] = value;
 
   return obj;
-
 }
 
-console.log(addKey("other_books", ["the fourth way", "beelzebub's tales to his grandson"]));
+console.log(
+  addKey("other_books", ["the fourth way", "beelzebub's tales to his grandson"])
+);
